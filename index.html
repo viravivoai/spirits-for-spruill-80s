@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spirits for Spruill - Artistic Affair 2026 | 80s Celebration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&family=Monoton&family=Rubik+Glitch&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://demosite2.blob.core.windows.net/lib/fontawesome6.2.1/css/all.min.css" />
+    <style>
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-cyan: #00ffff;
+            --neon-yellow: #ffff00;
+            --neon-orange: #ff6600;
+            --neon-purple: #9933ff;
+            --neon-blue: #0066ff;
+            --dark-bg: #0a0a1a;
+            --grid-color: rgba(255, 0, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: var(--dark-bg);
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Retro Grid Background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        /* Scanlines */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 26, 0.95);
+            border-bottom: 2px solid var(--neon-pink);
+            box-shadow: 0 0 20px var(--neon-pink);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Monoton', cursive;
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-pink);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Parallax Sections */
+        .parallax-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a0033 0%, #0a0a1a 50%, #001a33 100%);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            z-index: 10;
+            transform: translateY(50px);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Monoton', cursive;
+            font-size: clamp(3rem, 10vw, 8rem);
+            color: var(--neon-pink);
+            text-shadow: 
+                0 0 10px var(--neon-pink),
+                0 0 20px var(--neon-pink),
+                0 0 40px var(--neon-pink),
+                0 0 80px var(--neon-pink);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-family: 'Press Start 2P', cursive;
+            font-size: clamp(0.8rem, 2vw, 1.2rem);
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+            margin-bottom: 2rem;
+            letter-spacing: 4px;
+        }
+
+        .hero .date-box {
+            background: rgba(255, 0, 255, 0.1);
+            border: 2px solid var(--neon-pink);
+            padding: 1.5rem 3rem;
+            display: inline-block;
+            margin: 2rem 0;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+        }
+
+        .hero .date {
+            font-size: 1.5rem;
+            color: var(--neon-yellow);
+            text-shadow: 0 0 10px var(--neon-yellow);
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: var(--neon-cyan);
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            margin: 1rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px var(--neon-pink);
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-blue));
+        }
+
+        .cta-button.secondary:hover {
+            box-shadow: 0 0 30px var(--neon-cyan);
+        }
+
+        /* Floating 80s Elements */
+        .floating-element {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .cassette {
+            font-size: 4rem;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .rubiks {
+            font-size: 3rem;
+            top: 30%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .boombox {
+            font-size: 5rem;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+        .gamepad {
+            font-size: 3.5rem;
+            bottom: 25%;
+            right: 10%;
+            animation-delay: 0.5s;
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(180deg, #1a0033 0%, #0a0a1a 100%);
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            font-family: 'Rubik Glitch', cursive;
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: var(--neon-cyan);
+            text-shadow: 0 0 20px var(--neon-cyan);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .content-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--neon-purple);
+            padding: 3rem;
+            box-shadow: 0 0 40px rgba(153, 51, 255, 0.2);
+        }
+
+        .content-box p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: var(--neon-yellow);
+            text-shadow: 0 0 5px var(--neon-yellow);
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2.5rem;
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--neon-cyan);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Activities Section */
+        .activities-section {
+            background: linear-gradient(180deg, #0a0a1a 0%, #001a33 100%);
+            padding: 6rem 2rem;
+        }
+
+        .activities-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .activity-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid transparent;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .activity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan), var(--neon-purple));
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+
+        .activity-card:hover {
+            border-color: var(--neon-pink);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(255, 0, 255, 0.3);
+        }
+
+        .activity-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .activity-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .activity-card h3 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            color: var(--neon-yellow);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px var(--neon-yellow);
+        }
+
+        .activity-card p {
+            color: #ccc;
+            line-height: 1.7;
+        }
+
+        .activity-card ul {
+            color: #ccc;
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .activity-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Keith Haring Mural Section */
+        .mural-section {
+            background: linear-gradient(180deg, #001a33 0%, #1a0033 100%);
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .mural-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .mural-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .haring-figures {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .haring-figure {
+            font-size: 5rem;
+            animation: dance 1s ease-in-out infinite alternate;
+        }
+
+        .haring-figure:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .haring-figure:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes dance {
+            from { transform: translateY(0) rotate(-5deg); }
+            to { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .mural-text h3 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1rem;
+            color: var(--neon-orange);
+            text-shadow: 0 0 10px var(--neon-orange);
+            margin-bottom: 1.5rem;
+        }
+
+        .mural-text p {
+            color: #ccc;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Cocktail Section */
+        .cocktail-section {
+            background: linear-gradient(180deg, #1a0033 0%, #330033 50%, #0a0a1a 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .cocktail-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--neon-pink);
+            padding: 3rem;
+            position: relative;
+        }
+
+        .cocktail-card::before {
+            content: '🍹';
+            font-size: 4rem;
+            position: absolute;
+            top: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cocktail-name {
+            font-family: 'Monoton', cursive;
+            font-size: 2.5rem;
+            color: var(--neon-pink);
+            text-shadow: 0 0 20px var(--neon-pink);
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .cocktail-subtitle {
+            color: var(--neon-cyan);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .cocktail-ingredients {
+            color: #ccc;
+            text-align: left;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Slang Ticker */
+        .slang-ticker {
+            background: var(--neon-pink);
+            padding: 1rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ticker-content {
+            display: flex;
+            animation: ticker 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-item {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1rem;
+            color: var(--dark-bg);
+            padding: 0 3rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: linear-gradient(180deg, #0a0a1a 0%, #001a33 100%);
+            padding: 6rem 2rem;
+        }
+
+        .gallery-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            transform: scale(1.02);
+            z-index: 10;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Sponsors Section */
+        .sponsors-section {
+            background: linear-gradient(180deg, #001a33 0%, #0a0a1a 100%);
+            padding: 6rem 2rem;
+        }
+
+        .sponsor-tier {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tier-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            color: var(--neon-orange);
+            text-shadow: 0 0 10px var(--neon-orange);
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .sponsor-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .sponsor-logo {
+            background: white;
+            padding: 1rem;
+            max-width: 200px;
+            transition: all 0.3s;
+        }
+
+        .sponsor-logo:hover {
+            box-shadow: 0 0 30px var(--neon-cyan);
+            transform: scale(1.05);
+        }
+
+        .sponsor-logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Hosts Section */
+        .hosts-section {
+            background: linear-gradient(180deg, #0a0a1a 0%, #1a0033 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hosts-list {
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--neon-cyan);
+            font-size: 1rem;
+            line-height: 2;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            border-top: 2px solid var(--neon-pink);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Monoton', cursive;
+            font-size: 2rem;
+            color: var(--neon-pink);
+            text-shadow: 0 0 20px var(--neon-pink);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            font-size: 2rem;
+            color: var(--neon-cyan);
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 20px var(--neon-pink);
+            transform: scale(1.2);
+        }
+
+        .footer-info {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-info a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+        }
+
+        /* Parallax Scroll Effects */
+        .parallax-bg {
+            position: absolute;
+            width: 100%;
+            height: 150%;
+            top: -25%;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .floating-element {
+                display: none;
+            }
+
+            .stats-row {
+                gap: 2rem;
+            }
+
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* VHS Glitch Effect */
+        .glitch {
+            animation: glitch 5s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translate(0); }
+            91% { transform: translate(-2px, 1px); }
+            92% { transform: translate(2px, -1px); }
+            93% { transform: translate(-1px, 2px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">SPRUILL '86</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#sponsors">Sponsors</a></li>
+            <li><a href="https://wedoauctions.com/app/public/bidapp/spruillarts/tickets/Artistic_Affair" target="_blank">Tickets</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="parallax-section hero">
+        <div class="floating-element cassette">📼</div>
+        <div class="floating-element rubiks">🎲</div>
+        <div class="floating-element boombox">📻</div>
+        <div class="floating-element gamepad">🎮</div>
+        
+        <div class="hero-content">
+            <h1 class="glitch">Spirits for Spruill</h1>
+            <p class="subtitle">40th Annual Artistic Affair</p>
+            
+            <div class="date-box">
+                <span class="date">📅 Saturday, March 28th, 2026</span><br>
+                <span style="color: var(--neon-cyan)">5:30pm - 9:00pm</span>
+            </div>
+            
+            <p class="tagline">✨ Dust off your cassettes and tease your hair — be there or be square! ✨</p>
+            
+            <div style="margin-top: 3rem;">
+                <a href="https://wedoauctions.com/app/public/bidapp/spruillarts/tickets/Artistic_Affair?p=individual" class="cta-button" target="_blank">
+                    <i class="fas fa-ticket"></i> Get Tickets
+                </a>
+                <a href="https://wedoauctions.com/app/public/bidapp/spruillarts/tickets/Artistic_Affair?p=sponsor" class="cta-button secondary" target="_blank">
+                    <i class="fas fa-star"></i> Become a Sponsor
+                </a>
+            </div>
+            
+            <p style="margin-top: 2rem; color: var(--neon-yellow);">
+                <i class="fas fa-clock"></i> Early Bird Sale ends February 15th — 20% OFF!
+            </p>
+        </div>
+    </section>
+
+    <!-- Slang Ticker -->
+    <div class="slang-ticker">
+        <div class="ticker-content">
+            <span class="ticker-item">★ TOTALLY TUBULAR ★</span>
+            <span class="ticker-item">★ RAD ★</span>
+            <span class="ticker-item">★ GAG ME WITH A SPOON ★</span>
+            <span class="ticker-item">★ GNARLY ★</span>
+            <span class="ticker-item">★ BODACIOUS ★</span>
+            <span class="ticker-item">★ GRODY TO THE MAX ★</span>
+            <span class="ticker-item">★ TOTALLY TUBULAR ★</span>
+            <span class="ticker-item">★ RAD ★</span>
+            <span class="ticker-item">★ GAG ME WITH A SPOON ★</span>
+            <span class="ticker-item">★ GNARLY ★</span>
+            <span class="ticker-item">★ BODACIOUS ★</span>
+            <span class="ticker-item">★ GRODY TO THE MAX ★</span>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="parallax-section about-section">
+        <div style="width: 100%;">
+            <h2 class="section-title scroll-reveal">About the Event</h2>
+            
+            <div class="content-box scroll-reveal">
+                <p>
+                    <i class="fas fa-map-marker-alt" style="color: var(--neon-pink);"></i>
+                    <strong class="highlight">Spruill Center for the Arts</strong><br>
+                    5339 Chamblee Dunwoody Rd, Dunwoody, GA 30338
+                </p>
+                
+                <p>
+                    This year's <span class="highlight">40th Annual Artistic Affair</span> builds on the electric energy of last year's 70s celebration, fast-forwarding a decade into full-on <span class="highlight">1980s fun!</span> Get ready to bust a move, scramble the Cube, and relive your Atari days.
+                </p>
+                
+                <p>
+                    Bid on totally tubular items in our live and silent auctions featuring artwork from students, instructors, and local artists! Revel in the righteous 80s hits spun by our rad DJ and join in our solo and group costume contests, raffles, and much more as we raise funds for arts education in our community.
+                </p>
+            </div>
+            
+            <div class="stats-row scroll-reveal">
+                <div class="stat">
+                    <span class="stat-number">350+</span>
+                    <span class="stat-label">Guests Last Year</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">$112K</span>
+                    <span class="stat-label">Raised in 2025</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">$17.5K</span>
+                    <span class="stat-label">For Scholarships</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="parallax-section activities-section">
+        <div style="width: 100%;">
+            <h2 class="section-title scroll-reveal">Totally Rad Activities</h2>
+            
+            <div class="activities-grid">
+                <div class="activity-card scroll-reveal">
+                    <span class="activity-icon">💃</span>
+                    <h3>Breakdancing & Electric Slide</h3>
+                    <p>Hit the dance floor for group electric slides, dirty dancing moves, and breakdancing battles. Show off your best 80s moves!</p>
+                </div>
+                
+                <div class="activity-card scroll-reveal">
+                    <span class="activity-icon">🌟</span>
+                    <h3>Neon & Glowsticks</h3>
+                    <p>Light up the night with neon everything! Glowsticks, blacklights, and all the fluorescent fun you can handle.</p>
+                </div>
+                
+                <div class="activity-card scroll-reveal">
+                    <span class="activity-icon">🧸</span>
+                    <h3>Care Bears & Cabbage Patch Kids</h3>
+                    <p>Relive your childhood with nostalgic displays of your favorite 80s toys and collectibles.</p>
+                </div>
+                
+                <div class="activity-card scroll-reveal">
+                    <span class="activity-icon">📻</span>
+                    <h3>Boombox & VHS Vibes</h3>
+                    <p>Boomboxes pumping hits, VCR displays, and all the analog aesthetics that made the 80s unforgettable.</p>
+                </div>
+                
+                <div class="activity-card scroll-reveal">
+                    <span class="activity-icon">🎯</span>
+                    <h3>Trivial Pursuit Raffle</h3>
+                    <p>Audience picks the category, 2 buzzers to chime in! Loser gets a consolation prize like Mister Potato Head or Pop Rocks.</p>
+                </div>
+                
+                <div class="activity-card scroll-reveal">
+                    <span class="activity-icon">💇</span>
+                    <h3>Big Hair & Makeup Booth</h3>
+                    <p>Get your classic 80s makeover! Side ponytails with scrunchies, electric eye shadow in bright blue, purple, and neon pink. Perfect photo op!</p>
+                    <ul>
+                        <li>Hair crimpers & scrunchies</li>
+                        <li>Electric eye shadow application</li>
+                        <li>Photo opportunity station</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keith Haring Mural Section -->
+    <section class="parallax-section mural-section">
+        <div style="width: 100%;">
+            <h2 class="section-title scroll-reveal">🎨 The Keith Haring Collaborative Mural</h2>
+            
+            <div class="mural-content scroll-reveal">
+                <div class="haring-figures">
+                    <div class="haring-figure">🕺</div>
+                    <div class="haring-figure">💃</div>
+                    <div class="haring-figure">🏃</div>
+                </div>
+                
+                <div class="mural-text">
+                    <h3>The 80s Vibe</h3>
+                    <p>Keith Haring was one of the decade's most recognizable artists, known for his bold, dynamic figures and simple lines that turned pop and street art into high art.</p>
+                    
+                    <h3>The Activation</h3>
+                    <p>A large roll of butcher paper or blank canvas on a wall. We'll start with Haring's signature "Radiant Baby" or "Barking Dog" figures to set the tone.</p>
+                    
+                    <h3>The Challenge</h3>
+                    <p>Thick, black Sharpie markers and neon/bright-colored paint pens. Draw your own simple, active figures and fill the gaps, turning the wall into a single, cohesive, chaotic 80s masterpiece!</p>
+                    
+                    <h3 style="color: var(--neon-pink);">Fundraising Tie-in</h3>
+                    <p>At the end of the night, the mural can be cut into smaller squares to be sold as unique, collaborative art pieces or auctioned as one entire canvas!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Cocktail Section -->
+    <section class="parallax-section cocktail-section">
+        <h2 class="section-title scroll-reveal">Signature Cocktail</h2>
+        
+        <div class="cocktail-card scroll-reveal">
+            <h3 class="cocktail-name">The Dunwoody Vice</h3>
+            <p class="cocktail-subtitle">A reference to Miami Vice — fruity, sweet, and totally 80s</p>
+            
+            <div class="cocktail-ingredients">
+                <p><i class="fas fa-cocktail" style="color: var(--neon-pink);"></i> <strong>Ingredients:</strong></p>
+                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                    <li>Vodka</li>
+                    <li>Peach Schnapps</li>
+                    <li>Cranberry Juice</li>
+                    <li>Orange Juice</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="parallax-section gallery-section">
+        <div style="width: 100%;">
+            <h2 class="section-title scroll-reveal">📸 2025 Flashback Photos</h2>
+            
+            <div class="gallery-grid scroll-reveal">
+                <div class="gallery-item">
+                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_6HkPEitsJr.jpg" alt="2025 Event Photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_6eBEGr860Q.jpg" alt="2025 Event Photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_D8dfIFUGND.jpg" alt="2025 Event Photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_GTq7hdIl4e.jpg" alt="2025 Event Photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_HWqWeOHAim.jpg" alt="2025 Event Photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_IBq4oFTMiX.jpg" alt="2025 Event Photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_KD1XsQIpVx.jpg" alt="2025 Event Photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_L1Gd1v69z5.jpg" alt="2025 Event Photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_NnvtuipPwA.jpg" alt="2025 Event Photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_NvDAiUIfXw.jpg" alt="2025 Event Photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_RwJvUSUP6p.jpg" alt="2025 Event Photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_Sgw8GVqM1T.jpg" alt="2025 Event Photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="parallax-section sponsors-section">
+        <div style="width: 100%;">
+            <h2 class="section-title scroll-reveal">🏆 Our Radical Sponsors</h2>
+            
+            <div class="sponsor-tier scroll-reveal">
+                <p class="tier-title">⭐ Presenting Sponsors ⭐</p>
+                <div class="sponsor-logos">
+                    <a href="https://www.regencycenters.com/" target="_blank" class="sponsor-logo">
+                        <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/sponsor_0_NMdbr6hqyn.jpg" alt="Regency Centers">
+                    </a>
+                    <a href="https://www.tridentconstructiongroup.com/" target="_blank" class="sponsor-logo">
+                        <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/sponsor_3_RiaAf5ca4l.jpg" alt="Trident Construction Group">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="sponsor-tier scroll-reveal">
+                <p class="tier-title">🎨 Art Experience Sponsor</p>
+                <div class="sponsor-logos">
+                    <a href="https://www.jwbrealty.com/" target="_blank" class="sponsor-logo">
+                        <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/sponsor_9_t3OulPFbBN.png" alt="JWB Realty Services">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="sponsor-tier scroll-reveal">
+                <p class="tier-title">🎭 Art Patrons</p>
+                <div class="sponsor-logos">
+                    <a href="https://interlokit.com/" target="_blank" class="sponsor-logo">
+                        <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/sponsor_V1Z9m0z8gV.jpg" alt="Interlokit">
+                    </a>
+                    <a href="https://www.ubsi-inc.com/" target="_blank" class="sponsor-logo">
+                        <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/sponsor_Zv7EomhxSh.jpg" alt="United Bankshares">
+                    </a>
+                    <a href="https://roughdraftatlanta.com/" target="_blank" class="sponsor-logo">
+                        <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/sponsor_a5gOwBai6E.png" alt="Dunwoody Reporter">
+                    </a>
+                    <a href="https://www.georgiasown.org/" target="_blank" class="sponsor-logo">
+                        <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/sponsor_lVLFtATNPR.png" alt="Georgia's Own Credit Union">
+                    </a>
+                    <a href="https://www.savdist.com/" target="_blank" class="sponsor-logo">
+                        <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/sponsor_u7ibFEEy9t.jpg" alt="Savannah Distributing">
+                    </a>
+                    <a href="https://perimeteratl.com/perimeter-cids/" target="_blank" class="sponsor-logo">
+                        <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/sponsor_vVnJllhxyl.png" alt="Perimeter CIDs">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hosts Section -->
+    <section class="parallax-section hosts-section">
+        <div style="width: 100%;">
+            <h2 class="section-title scroll-reveal">💜 Our Amazing 2026 Hosts</h2>
+            
+            <div class="hosts-list scroll-reveal">
+                Anonymous Supporter • Jan & Olen Akers • Dawn Brost • Leslie & Frank Cannon • Laura Cooper • James (Jim) & Corrine Cramer • Marie Crean • Steve & Jane Dolinger • Su & Richard Ellis • Fran & Jim Fuchs • Paul & Julie Hagedorn • Carlton Hardee • Susan & Richard Jakubecy • Terry & Alan Kemp • Kay Loerch • Amy & Dan McMorrow • Fran & Mary Millar • Irv & Libba Morris • Jill Morrisey • Joyce Neimann • Rob & Nancy Ortner • Cindy & Tom Pietkiewicz • Beth & Bob Saxe • Christine Self • Tracy Simmons • Leslie & Mike Sivewright • Camille & Mike Toppo • Pat Troxel • Kathy Walton • Pam Wetzel
+            </div>
+            
+            <div style="margin-top: 3rem;" class="scroll-reveal">
+                <a href="https://wedoauctions.com/app/public/bidapp/spruillarts/tickets/Artistic_Affair?p=sponsor" class="cta-button" target="_blank">
+                    <i class="fas fa-heart"></i> Become a Host
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section class="parallax-section" style="background: linear-gradient(180deg, #1a0033 0%, #0a0a1a 100%); padding: 6rem 2rem;">
+        <div style="text-align: center;">
+            <h2 class="section-title scroll-reveal">🎁 Donate to the Silent Auction</h2>
+            
+            <div class="content-box scroll-reveal" style="max-width: 700px;">
+                <p>
+                    Are you a business or artist looking to support the arts? Donate artwork, gift cards, or other goods to our Artistic Affair silent auction!
+                </p>
+                <p>
+                    Contact Spruill's Community Programs and Events Coordinator:<br>
+                    <a href="mailto:bthomas@spruillarts.org" style="color: var(--neon-cyan);">
+                        <i class="fas fa-envelope"></i> bthomas@spruillarts.org
+                    </a>
+                </p>
+                
+                <div style="margin-top: 2rem;">
+                    <a href="https://wedoauctions.com/app/public/bidapp/spruillarts/donate" class="cta-button secondary" target="_blank">
+                        <i class="fas fa-gift"></i> Donate Item
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Spirits for Spruill '26</div>
+        
+        <div class="social-links">
+            <a href="https://www.facebook.com/spruillarts" target="_blank" title="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/spruillarts" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        
+        <div class="footer-info">
+            <p>Spruill Center for the Arts</p>
+            <p>5339 Chamblee Dunwoody Rd, Dunwoody, GA 30338</p>
+            <p style="margin-top: 1rem;">
+                Questions? <a href="mailto:bthomas@spruillarts.org">Contact Barb Thomas</a>
+            </p>
+            <p style="margin-top: 2rem; color: #444;">
+                Made with ❤️ and totally tubular vibes
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scroll Reveal Script -->
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            
+            // Move floating elements
+            document.querySelectorAll('.floating-element').forEach((el, i) => {
+                const speed = 0.1 + (i * 0.05);
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
