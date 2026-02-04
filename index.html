@@ -76,6 +76,139 @@
             z-index: 9999;
         }
 
+        /* ========== PARALLAX FLOATING ELEMENTS ========== */
+        .parallax-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+        }
+
+        .parallax-photo {
+            position: absolute;
+            border: 4px solid var(--neon-pink);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+            opacity: 0.85;
+            transition: opacity 0.3s;
+        }
+
+        .parallax-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Left side photos */
+        .photo-left-1 {
+            width: 200px;
+            height: 150px;
+            left: -30px;
+            top: 15%;
+            transform: rotate(-8deg);
+        }
+
+        .photo-left-2 {
+            width: 180px;
+            height: 220px;
+            left: 20px;
+            top: 45%;
+            transform: rotate(5deg);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .photo-left-3 {
+            width: 220px;
+            height: 160px;
+            left: -40px;
+            top: 75%;
+            transform: rotate(-12deg);
+            border-color: var(--neon-yellow);
+            box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+        }
+
+        /* Right side photos */
+        .photo-right-1 {
+            width: 190px;
+            height: 240px;
+            right: -20px;
+            top: 10%;
+            transform: rotate(10deg);
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 30px rgba(153, 51, 255, 0.5);
+        }
+
+        .photo-right-2 {
+            width: 210px;
+            height: 160px;
+            right: 30px;
+            top: 40%;
+            transform: rotate(-6deg);
+        }
+
+        .photo-right-3 {
+            width: 170px;
+            height: 200px;
+            right: -25px;
+            top: 68%;
+            transform: rotate(8deg);
+            border-color: var(--neon-orange);
+            box-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
+        }
+
+        /* Cassette tapes - using the same image with different CSS transforms */
+        .cassette-tape {
+            position: absolute;
+            width: 180px;
+            height: auto;
+            opacity: 0.9;
+        }
+
+        .cassette-tape img {
+            width: 100%;
+            height: auto;
+        }
+
+        .cassette-1 {
+            left: 5%;
+            top: 25%;
+            transform: rotate(-15deg) scale(1.2);
+            filter: hue-rotate(0deg) saturate(1.3);
+        }
+
+        .cassette-2 {
+            right: 8%;
+            top: 55%;
+            transform: rotate(20deg) scale(1);
+            filter: hue-rotate(180deg) saturate(1.5) brightness(1.1);
+        }
+
+        .cassette-3 {
+            left: 3%;
+            top: 60%;
+            transform: rotate(8deg) scale(0.9);
+            filter: hue-rotate(90deg) saturate(1.4);
+        }
+
+        .cassette-4 {
+            right: 5%;
+            top: 20%;
+            transform: rotate(-25deg) scale(1.1);
+            filter: hue-rotate(270deg) saturate(1.2) brightness(1.2);
+        }
+
+        /* Hide parallax elements on mobile */
+        @media (max-width: 1200px) {
+            .parallax-container {
+                display: none;
+            }
+        }
+
         /* Navigation */
         nav {
             position: fixed;
@@ -97,14 +230,13 @@
         }
 
         .spruill-logo {
-            height: 50px;
+            height: 60px;
             width: auto;
-            filter: brightness(0) invert(1);
             transition: all 0.3s;
         }
 
         .spruill-logo:hover {
-            filter: brightness(0) invert(1) drop-shadow(0 0 10px var(--neon-cyan));
+            filter: drop-shadow(0 0 15px var(--neon-pink));
         }
 
         .nav-links {
@@ -116,7 +248,7 @@
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: all 0.3s;
@@ -143,6 +275,14 @@
             width: 100%;
         }
 
+        /* Main Content Area - centered with margins for parallax */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
         /* Parallax Sections */
         .parallax-section {
             min-height: 100vh;
@@ -150,14 +290,15 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            padding: 6rem 2rem;
         }
 
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #1a0033 0%, #0a0a1a 50%, #001a33 100%);
             text-align: center;
-            padding: 2rem;
+            padding-top: 100px;
         }
 
         .hero-content {
@@ -176,105 +317,77 @@
 
         .hero-banner {
             margin-bottom: 2rem;
-            perspective: 1000px;
         }
 
         .event-banner {
-            max-width: 90%;
-            width: 800px;
+            max-width: 100%;
+            width: 700px;
             height: auto;
-            border: 4px solid var(--neon-pink);
+            border: 5px solid var(--neon-pink);
             box-shadow: 
-                0 0 20px var(--neon-pink),
-                0 0 40px rgba(255, 0, 255, 0.5),
-                inset 0 0 60px rgba(255, 0, 255, 0.1);
+                0 0 30px var(--neon-pink),
+                0 0 60px rgba(255, 0, 255, 0.4);
             animation: bannerGlow 3s ease-in-out infinite alternate;
         }
 
         @keyframes bannerGlow {
             from {
                 box-shadow: 
-                    0 0 20px var(--neon-pink),
-                    0 0 40px rgba(255, 0, 255, 0.5);
+                    0 0 30px var(--neon-pink),
+                    0 0 60px rgba(255, 0, 255, 0.4);
             }
             to {
                 box-shadow: 
-                    0 0 30px var(--neon-cyan),
-                    0 0 60px rgba(0, 255, 255, 0.5);
+                    0 0 40px var(--neon-cyan),
+                    0 0 80px rgba(0, 255, 255, 0.4);
                 border-color: var(--neon-cyan);
             }
         }
 
-        .hero h1 {
-            font-family: 'Bungee', cursive;
-            font-size: clamp(2.5rem, 8vw, 6rem);
-            color: var(--neon-pink);
-            text-shadow: 
-                0 0 10px var(--neon-pink),
-                0 0 20px var(--neon-pink),
-                0 0 40px var(--neon-pink),
-                0 0 80px var(--neon-pink),
-                4px 4px 0 var(--neon-cyan);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            letter-spacing: 2px;
-        }
-
-        .hero .subtitle {
-            font-family: 'Love Ya Like A Sister', cursive;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px var(--neon-cyan);
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
-        }
-
         .hero .date-box {
-            background: rgba(255, 0, 255, 0.1);
-            border: 2px solid var(--neon-pink);
-            padding: 1.5rem 3rem;
+            background: rgba(255, 0, 255, 0.15);
+            border: 3px solid var(--neon-pink);
+            padding: 2rem 3rem;
             display: inline-block;
             margin: 2rem 0;
-            box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+            box-shadow: 0 0 40px rgba(255, 0, 255, 0.4);
         }
 
         .hero .date {
-            font-size: 1.5rem;
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
             color: var(--neon-yellow);
-            text-shadow: 0 0 10px var(--neon-yellow);
+            text-shadow: 0 0 15px var(--neon-yellow);
+            letter-spacing: 2px;
         }
 
         .hero .tagline {
-            font-size: 1.2rem;
+            font-family: 'Love Ya Like A Sister', cursive;
+            font-size: 1.5rem;
             color: var(--neon-cyan);
             margin-top: 2rem;
-            font-style: italic;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 3rem;
+            padding: 1.2rem 3rem;
             margin: 1rem;
             font-family: 'Bangers', cursive;
-            font-size: 1.3rem;
-            font-weight: bold;
+            font-size: 1.4rem;
             text-transform: uppercase;
             text-decoration: none;
             color: white;
             background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
             border: none;
-            border-radius: 0;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
             transition: all 0.3s;
-            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+            clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
             letter-spacing: 2px;
         }
 
         .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px var(--neon-pink);
+            transform: scale(1.08);
+            box-shadow: 0 0 40px var(--neon-pink);
         }
 
         .cta-button.secondary {
@@ -282,90 +395,48 @@
         }
 
         .cta-button.secondary:hover {
-            box-shadow: 0 0 30px var(--neon-cyan);
+            box-shadow: 0 0 40px var(--neon-cyan);
         }
 
-        /* Floating 80s Elements */
-        .floating-element {
-            position: absolute;
-            animation: float 6s ease-in-out infinite;
-            opacity: 0.6;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        .cassette {
-            font-size: 4rem;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .rubiks {
-            font-size: 3rem;
-            top: 30%;
-            right: 15%;
-            animation-delay: 1s;
-        }
-
-        .boombox {
-            font-size: 5rem;
-            bottom: 20%;
-            left: 15%;
-            animation-delay: 2s;
-        }
-
-        .gamepad {
-            font-size: 3.5rem;
-            bottom: 25%;
-            right: 10%;
-            animation-delay: 0.5s;
-        }
-
-        /* About Section */
-        .about-section {
-            background: linear-gradient(180deg, #1a0033 0%, #0a0a1a 100%);
-            padding: 6rem 2rem;
-        }
-
+        /* Section Titles */
         .section-title {
             font-family: 'Permanent Marker', cursive;
-            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             color: var(--neon-cyan);
-            text-shadow: 0 0 20px var(--neon-cyan), 3px 3px 0 var(--neon-pink);
+            text-shadow: 0 0 20px var(--neon-cyan), 4px 4px 0 var(--neon-pink);
             text-align: center;
             margin-bottom: 3rem;
             transform: rotate(-2deg);
         }
 
+        /* About Section */
+        .about-section {
+            background: linear-gradient(180deg, #1a0033 0%, #0a0a1a 100%);
+        }
+
         .content-box {
-            max-width: 900px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--neon-purple);
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid var(--neon-purple);
             padding: 3rem;
-            box-shadow: 0 0 40px rgba(153, 51, 255, 0.2);
+            box-shadow: 0 0 50px rgba(153, 51, 255, 0.3);
         }
 
         .content-box p {
             margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1.15rem;
+            line-height: 1.9;
         }
 
         .highlight {
             color: var(--neon-yellow);
-            text-shadow: 0 0 5px var(--neon-yellow);
+            text-shadow: 0 0 8px var(--neon-yellow);
         }
 
         .stats-row {
             display: flex;
             justify-content: center;
             gap: 4rem;
-            margin: 3rem 0;
+            margin: 4rem 0;
             flex-wrap: wrap;
         }
 
@@ -375,35 +446,61 @@
 
         .stat-number {
             font-family: 'Bungee', cursive;
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--neon-pink);
-            text-shadow: 0 0 10px var(--neon-pink), 3px 3px 0 var(--neon-cyan);
+            text-shadow: 0 0 15px var(--neon-pink), 4px 4px 0 var(--neon-cyan);
             display: block;
         }
 
         .stat-label {
+            font-family: 'Love Ya Like A Sister', cursive;
             color: var(--neon-cyan);
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+        }
+
+        /* Slang Ticker */
+        .slang-ticker {
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple), var(--neon-pink));
+            padding: 1.2rem 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 20;
+        }
+
+        .ticker-content {
+            display: flex;
+            animation: ticker 25s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-item {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            color: var(--dark-bg);
+            padding: 0 3rem;
+            letter-spacing: 4px;
         }
 
         /* Activities Section */
         .activities-section {
             background: linear-gradient(180deg, #0a0a1a 0%, #001a33 100%);
-            padding: 6rem 2rem;
         }
 
         .activities-grid {
-            max-width: 1400px;
-            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
         .activity-card {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             border: 2px solid transparent;
             padding: 2rem;
             position: relative;
@@ -411,38 +508,15 @@
             transition: all 0.3s;
         }
 
-        .activity-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan), var(--neon-purple));
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: -1;
-        }
-
         .activity-card:hover {
             border-color: var(--neon-pink);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(255, 0, 255, 0.3);
-        }
-
-        .activity-card:hover::before {
-            opacity: 0.1;
-        }
-
-        .activity-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(255, 0, 255, 0.4);
         }
 
         .activity-card h3 {
             font-family: 'Bangers', cursive;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--neon-yellow);
             margin-bottom: 1rem;
             text-shadow: 0 0 10px var(--neon-yellow);
@@ -450,12 +524,13 @@
         }
 
         .activity-card p {
-            color: #ccc;
-            line-height: 1.7;
+            color: #ddd;
+            line-height: 1.8;
+            font-size: 1.05rem;
         }
 
         .activity-card ul {
-            color: #ccc;
+            color: #ddd;
             margin-left: 1.5rem;
             margin-top: 1rem;
         }
@@ -467,13 +542,9 @@
         /* Keith Haring Mural Section */
         .mural-section {
             background: linear-gradient(180deg, #001a33 0%, #1a0033 100%);
-            padding: 6rem 2rem;
-            position: relative;
         }
 
         .mural-content {
-            max-width: 1000px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -490,12 +561,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
+            gap: 1rem;
             flex-wrap: wrap;
+            font-size: 6rem;
         }
 
         .haring-figure {
-            font-size: 5rem;
             animation: dance 1s ease-in-out infinite alternate;
         }
 
@@ -509,141 +580,74 @@
 
         @keyframes dance {
             from { transform: translateY(0) rotate(-5deg); }
-            to { transform: translateY(-10px) rotate(5deg); }
+            to { transform: translateY(-15px) rotate(5deg); }
         }
 
         .mural-text h3 {
             font-family: 'Love Ya Like A Sister', cursive;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--neon-orange);
             text-shadow: 0 0 10px var(--neon-orange);
             margin-bottom: 1rem;
         }
 
         .mural-text p {
-            color: #ccc;
-            margin-bottom: 1rem;
-            line-height: 1.8;
+            color: #ddd;
+            margin-bottom: 1.2rem;
+            line-height: 1.9;
         }
 
         /* Cocktail Section */
         .cocktail-section {
             background: linear-gradient(180deg, #1a0033 0%, #330033 50%, #0a0a1a 100%);
-            padding: 6rem 2rem;
             text-align: center;
         }
 
         .cocktail-card {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid var(--neon-pink);
+            background: rgba(0, 0, 0, 0.6);
+            border: 3px solid var(--neon-pink);
             padding: 3rem;
+            max-width: 500px;
+            margin: 0 auto;
             position: relative;
         }
 
         .cocktail-card::before {
             content: '🍹';
-            font-size: 4rem;
+            font-size: 5rem;
             position: absolute;
-            top: -2rem;
+            top: -3rem;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .cocktail-name {
             font-family: 'Pacifico', cursive;
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--neon-pink);
-            text-shadow: 0 0 20px var(--neon-pink), 3px 3px 0 var(--neon-cyan);
-            margin-top: 1rem;
+            text-shadow: 0 0 25px var(--neon-pink), 4px 4px 0 var(--neon-cyan);
+            margin-top: 1.5rem;
             margin-bottom: 1rem;
         }
 
         .cocktail-subtitle {
+            font-family: 'Love Ya Like A Sister', cursive;
             color: var(--neon-cyan);
-            font-style: italic;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
         }
 
         .cocktail-ingredients {
-            color: #ccc;
+            color: #ddd;
             text-align: left;
-            padding: 1rem;
+            padding: 1.5rem;
             background: rgba(255, 255, 255, 0.05);
-        }
-
-        /* Slang Ticker */
-        .slang-ticker {
-            background: var(--neon-pink);
-            padding: 1rem 0;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .ticker-content {
-            display: flex;
-            animation: ticker 20s linear infinite;
-            white-space: nowrap;
-        }
-
-        @keyframes ticker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .ticker-item {
-            font-family: 'Bangers', cursive;
-            font-size: 1.5rem;
-            color: var(--dark-bg);
-            padding: 0 3rem;
-            letter-spacing: 3px;
-        }
-
-        /* Gallery Section */
-        .gallery-section {
-            background: linear-gradient(180deg, #0a0a1a 0%, #001a33 100%);
-            padding: 6rem 2rem;
-        }
-
-        .gallery-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 1;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .gallery-item:hover {
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
-            transform: scale(1.02);
-            z-index: 10;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
+            font-size: 1.1rem;
         }
 
         /* Sponsors Section */
         .sponsors-section {
             background: linear-gradient(180deg, #001a33 0%, #0a0a1a 100%);
-            padding: 6rem 2rem;
         }
 
         .sponsor-tier {
@@ -653,11 +657,10 @@
 
         .tier-title {
             font-family: 'Love Ya Like A Sister', cursive;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--neon-orange);
             text-shadow: 0 0 10px var(--neon-orange);
             margin-bottom: 1.5rem;
-            letter-spacing: 1px;
         }
 
         .sponsor-logos {
@@ -671,13 +674,13 @@
         .sponsor-logo {
             background: white;
             padding: 1rem;
-            max-width: 200px;
+            max-width: 180px;
             transition: all 0.3s;
         }
 
         .sponsor-logo:hover {
-            box-shadow: 0 0 30px var(--neon-cyan);
-            transform: scale(1.05);
+            box-shadow: 0 0 40px var(--neon-cyan);
+            transform: scale(1.08);
         }
 
         .sponsor-logo img {
@@ -688,40 +691,38 @@
         /* Hosts Section */
         .hosts-section {
             background: linear-gradient(180deg, #0a0a1a 0%, #1a0033 100%);
-            padding: 6rem 2rem;
             text-align: center;
         }
 
         .hosts-list {
-            max-width: 900px;
-            margin: 0 auto;
             color: var(--neon-cyan);
-            font-size: 1rem;
-            line-height: 2;
+            font-size: 1.1rem;
+            line-height: 2.2;
         }
 
         /* Footer */
         footer {
             background: var(--dark-bg);
-            border-top: 2px solid var(--neon-pink);
+            border-top: 3px solid var(--neon-pink);
             padding: 4rem 2rem;
             text-align: center;
+            position: relative;
+            z-index: 20;
         }
 
         .footer-logo-link {
             display: inline-block;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-spruill-logo {
-            height: 80px;
+            height: 100px;
             width: auto;
-            filter: brightness(0) invert(1);
             transition: all 0.3s;
         }
 
         .footer-spruill-logo:hover {
-            filter: brightness(0) invert(1) drop-shadow(0 0 15px var(--neon-pink));
+            filter: drop-shadow(0 0 20px var(--neon-pink));
         }
 
         .footer-logo {
@@ -740,38 +741,25 @@
         }
 
         .social-links a {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--neon-cyan);
             transition: all 0.3s;
         }
 
         .social-links a:hover {
             color: var(--neon-pink);
-            text-shadow: 0 0 20px var(--neon-pink);
+            text-shadow: 0 0 25px var(--neon-pink);
             transform: scale(1.2);
         }
 
         .footer-info {
-            color: #666;
-            font-size: 0.9rem;
+            color: #888;
+            font-size: 1rem;
         }
 
         .footer-info a {
             color: var(--neon-cyan);
             text-decoration: none;
-        }
-
-        /* Parallax Scroll Effects */
-        .parallax-bg {
-            position: absolute;
-            width: 100%;
-            height: 150%;
-            top: -25%;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            z-index: -1;
         }
 
         /* Scroll animations */
@@ -792,16 +780,16 @@
                 display: none;
             }
 
-            .floating-element {
-                display: none;
-            }
-
             .stats-row {
                 gap: 2rem;
             }
 
             .activities-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .parallax-section {
+                padding: 4rem 1rem;
             }
         }
 
@@ -812,9 +800,9 @@
 
         @keyframes glitch {
             0%, 90%, 100% { transform: translate(0); }
-            91% { transform: translate(-2px, 1px); }
-            92% { transform: translate(2px, -1px); }
-            93% { transform: translate(-1px, 2px); }
+            91% { transform: translate(-3px, 2px); }
+            92% { transform: translate(3px, -2px); }
+            93% { transform: translate(-2px, 3px); }
         }
     </style>
 </head>
@@ -822,15 +810,53 @@
     <div class="grid-bg"></div>
     <div class="scanlines"></div>
 
+    <!-- Parallax Floating Elements Container -->
+    <div class="parallax-container">
+        <!-- Cassette Tapes -->
+        <div class="cassette-tape cassette-1" data-speed="0.15">
+            <img src="images/casette.png" alt="Cassette Tape">
+        </div>
+        <div class="cassette-tape cassette-2" data-speed="0.25">
+            <img src="images/casette.png" alt="Cassette Tape">
+        </div>
+        <div class="cassette-tape cassette-3" data-speed="0.1">
+            <img src="images/casette.png" alt="Cassette Tape">
+        </div>
+        <div class="cassette-tape cassette-4" data-speed="0.2">
+            <img src="images/casette.png" alt="Cassette Tape">
+        </div>
+
+        <!-- Left Side Photos -->
+        <div class="parallax-photo photo-left-1" data-speed="0.08">
+            <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_6HkPEitsJr.jpg" alt="Event Photo">
+        </div>
+        <div class="parallax-photo photo-left-2" data-speed="0.12">
+            <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_D8dfIFUGND.jpg" alt="Event Photo">
+        </div>
+        <div class="parallax-photo photo-left-3" data-speed="0.18">
+            <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_HWqWeOHAim.jpg" alt="Event Photo">
+        </div>
+
+        <!-- Right Side Photos -->
+        <div class="parallax-photo photo-right-1" data-speed="0.1">
+            <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_GTq7hdIl4e.jpg" alt="Event Photo">
+        </div>
+        <div class="parallax-photo photo-right-2" data-speed="0.15">
+            <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_KD1XsQIpVx.jpg" alt="Event Photo">
+        </div>
+        <div class="parallax-photo photo-right-3" data-speed="0.22">
+            <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_NnvtuipPwA.jpg" alt="Event Photo">
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <a href="https://www.spruillarts.org/" target="_blank" class="nav-logo">
-            <img src="https://www.spruillarts.org/wp-content/uploads/2025/03/Spruill_SCA.png" alt="Spruill Center for the Arts" class="spruill-logo">
+            <img src="images/spruill1980slogo.png" alt="Spruill Artistic Affair 1980s" class="spruill-logo">
         </a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#activities">Activities</a></li>
-            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#sponsors">Sponsors</a></li>
             <li><a href="https://wedoauctions.com/app/public/bidapp/spruillarts/tickets/Artistic_Affair" target="_blank">Tickets</a></li>
         </ul>
@@ -838,35 +864,32 @@
 
     <!-- Hero Section -->
     <section class="parallax-section hero">
-        <div class="floating-element cassette">📼</div>
-        <div class="floating-element rubiks">🎲</div>
-        <div class="floating-element boombox">📻</div>
-        <div class="floating-element gamepad">🎮</div>
-        
-        <div class="hero-content">
-            <div class="hero-banner">
-                <img src="https://www.spruillarts.org/wp-content/uploads/2026/01/Spruill-2026-Artistic-Affair-2026-social-1.91to1-1024x537.jpg" alt="Artistic Affair 2026 - 80s Theme" class="event-banner">
+        <div class="main-content">
+            <div class="hero-content">
+                <div class="hero-banner">
+                    <img src="https://www.spruillarts.org/wp-content/uploads/2026/01/Spruill-2026-Artistic-Affair-2026-social-1.91to1-1024x537.jpg" alt="Artistic Affair 2026 - 80s Theme" class="event-banner">
+                </div>
+                
+                <div class="date-box">
+                    <span class="date">Saturday, March 28th, 2026</span><br>
+                    <span style="color: var(--neon-cyan); font-size: 1.3rem;">5:30pm - 9:00pm</span>
+                </div>
+                
+                <p class="tagline">Dust off your cassettes and tease your hair — be there or be square!</p>
+                
+                <div style="margin-top: 3rem;">
+                    <a href="https://wedoauctions.com/app/public/bidapp/spruillarts/tickets/Artistic_Affair?p=individual" class="cta-button" target="_blank">
+                        Get Tickets
+                    </a>
+                    <a href="https://wedoauctions.com/app/public/bidapp/spruillarts/tickets/Artistic_Affair?p=sponsor" class="cta-button secondary" target="_blank">
+                        Become a Sponsor
+                    </a>
+                </div>
+                
+                <p style="margin-top: 2rem; color: var(--neon-yellow); font-family: 'Love Ya Like A Sister', cursive; font-size: 1.3rem;">
+                    Early Bird Sale ends February 15th — 20% OFF!
+                </p>
             </div>
-            
-            <div class="date-box">
-                <span class="date">📅 Saturday, March 28th, 2026</span><br>
-                <span style="color: var(--neon-cyan)">5:30pm - 9:00pm</span>
-            </div>
-            
-            <p class="tagline">✨ Dust off your cassettes and tease your hair — be there or be square! ✨</p>
-            
-            <div style="margin-top: 3rem;">
-                <a href="https://wedoauctions.com/app/public/bidapp/spruillarts/tickets/Artistic_Affair?p=individual" class="cta-button" target="_blank">
-                    <i class="fas fa-ticket"></i> Get Tickets
-                </a>
-                <a href="https://wedoauctions.com/app/public/bidapp/spruillarts/tickets/Artistic_Affair?p=sponsor" class="cta-button secondary" target="_blank">
-                    <i class="fas fa-star"></i> Become a Sponsor
-                </a>
-            </div>
-            
-            <p style="margin-top: 2rem; color: var(--neon-yellow);">
-                <i class="fas fa-clock"></i> Early Bird Sale ends February 15th — 20% OFF!
-            </p>
         </div>
     </section>
 
@@ -890,12 +913,11 @@
 
     <!-- About Section -->
     <section id="about" class="parallax-section about-section">
-        <div style="width: 100%;">
+        <div class="main-content">
             <h2 class="section-title scroll-reveal">About the Event</h2>
             
             <div class="content-box scroll-reveal">
                 <p>
-                    <i class="fas fa-map-marker-alt" style="color: var(--neon-pink);"></i>
                     <strong class="highlight">Spruill Center for the Arts</strong><br>
                     5339 Chamblee Dunwoody Rd, Dunwoody, GA 30338
                 </p>
@@ -928,44 +950,38 @@
 
     <!-- Activities Section -->
     <section id="activities" class="parallax-section activities-section">
-        <div style="width: 100%;">
+        <div class="main-content">
             <h2 class="section-title scroll-reveal">Totally Rad Activities</h2>
             
             <div class="activities-grid">
                 <div class="activity-card scroll-reveal">
-                    <span class="activity-icon">💃</span>
                     <h3>Breakdancing & Electric Slide</h3>
                     <p>Hit the dance floor for group electric slides, dirty dancing moves, and breakdancing battles. Show off your best 80s moves!</p>
                 </div>
                 
                 <div class="activity-card scroll-reveal">
-                    <span class="activity-icon">🌟</span>
                     <h3>Neon & Glowsticks</h3>
                     <p>Light up the night with neon everything! Glowsticks, blacklights, and all the fluorescent fun you can handle.</p>
                 </div>
                 
                 <div class="activity-card scroll-reveal">
-                    <span class="activity-icon">🧸</span>
                     <h3>Care Bears & Cabbage Patch Kids</h3>
                     <p>Relive your childhood with nostalgic displays of your favorite 80s toys and collectibles.</p>
                 </div>
                 
                 <div class="activity-card scroll-reveal">
-                    <span class="activity-icon">📻</span>
                     <h3>Boombox & VHS Vibes</h3>
                     <p>Boomboxes pumping hits, VCR displays, and all the analog aesthetics that made the 80s unforgettable.</p>
                 </div>
                 
                 <div class="activity-card scroll-reveal">
-                    <span class="activity-icon">🎯</span>
                     <h3>Trivial Pursuit Raffle</h3>
                     <p>Audience picks the category, 2 buzzers to chime in! Loser gets a consolation prize like Mister Potato Head or Pop Rocks.</p>
                 </div>
                 
                 <div class="activity-card scroll-reveal">
-                    <span class="activity-icon">💇</span>
                     <h3>Big Hair & Makeup Booth</h3>
-                    <p>Get your classic 80s makeover! Side ponytails with scrunchies, electric eye shadow in bright blue, purple, and neon pink. Perfect photo op!</p>
+                    <p>Get your classic 80s makeover! Side ponytails with scrunchies, electric eye shadow in bright blue, purple, and neon pink.</p>
                     <ul>
                         <li>Hair crimpers & scrunchies</li>
                         <li>Electric eye shadow application</li>
@@ -978,14 +994,14 @@
 
     <!-- Keith Haring Mural Section -->
     <section class="parallax-section mural-section">
-        <div style="width: 100%;">
-            <h2 class="section-title scroll-reveal">🎨 The Keith Haring Collaborative Mural</h2>
+        <div class="main-content">
+            <h2 class="section-title scroll-reveal">The Keith Haring Collaborative Mural</h2>
             
             <div class="mural-content scroll-reveal">
                 <div class="haring-figures">
-                    <div class="haring-figure">🕺</div>
-                    <div class="haring-figure">💃</div>
-                    <div class="haring-figure">🏃</div>
+                    <span class="haring-figure">🕺</span>
+                    <span class="haring-figure">💃</span>
+                    <span class="haring-figure">🏃</span>
                 </div>
                 
                 <div class="mural-text">
@@ -996,10 +1012,10 @@
                     <p>A large roll of butcher paper or blank canvas on a wall. We'll start with Haring's signature "Radiant Baby" or "Barking Dog" figures to set the tone.</p>
                     
                     <h3>The Challenge</h3>
-                    <p>Thick, black Sharpie markers and neon/bright-colored paint pens. Draw your own simple, active figures and fill the gaps, turning the wall into a single, cohesive, chaotic 80s masterpiece!</p>
+                    <p>Thick, black Sharpie markers and neon/bright-colored paint pens. Draw your own simple, active figures and fill the gaps!</p>
                     
                     <h3 style="color: var(--neon-pink);">Fundraising Tie-in</h3>
-                    <p>At the end of the night, the mural can be cut into smaller squares to be sold as unique, collaborative art pieces or auctioned as one entire canvas!</p>
+                    <p>At the end of the night, the mural can be cut into smaller squares to be sold as unique, collaborative art pieces!</p>
                 </div>
             </div>
         </div>
@@ -1007,65 +1023,21 @@
 
     <!-- Signature Cocktail Section -->
     <section class="parallax-section cocktail-section">
-        <h2 class="section-title scroll-reveal">Signature Cocktail</h2>
-        
-        <div class="cocktail-card scroll-reveal">
-            <h3 class="cocktail-name">The Dunwoody Vice</h3>
-            <p class="cocktail-subtitle">A reference to Miami Vice — fruity, sweet, and totally 80s</p>
+        <div class="main-content">
+            <h2 class="section-title scroll-reveal">Signature Cocktail</h2>
             
-            <div class="cocktail-ingredients">
-                <p><i class="fas fa-cocktail" style="color: var(--neon-pink);"></i> <strong>Ingredients:</strong></p>
-                <ul style="margin-left: 2rem; margin-top: 0.5rem;">
-                    <li>Vodka</li>
-                    <li>Peach Schnapps</li>
-                    <li>Cranberry Juice</li>
-                    <li>Orange Juice</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="parallax-section gallery-section">
-        <div style="width: 100%;">
-            <h2 class="section-title scroll-reveal">📸 2025 Flashback Photos</h2>
-            
-            <div class="gallery-grid scroll-reveal">
-                <div class="gallery-item">
-                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_6HkPEitsJr.jpg" alt="2025 Event Photo">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_6eBEGr860Q.jpg" alt="2025 Event Photo">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_D8dfIFUGND.jpg" alt="2025 Event Photo">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_GTq7hdIl4e.jpg" alt="2025 Event Photo">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_HWqWeOHAim.jpg" alt="2025 Event Photo">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_IBq4oFTMiX.jpg" alt="2025 Event Photo">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_KD1XsQIpVx.jpg" alt="2025 Event Photo">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_L1Gd1v69z5.jpg" alt="2025 Event Photo">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_NnvtuipPwA.jpg" alt="2025 Event Photo">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_NvDAiUIfXw.jpg" alt="2025 Event Photo">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_RwJvUSUP6p.jpg" alt="2025 Event Photo">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_Sgw8GVqM1T.jpg" alt="2025 Event Photo">
+            <div class="cocktail-card scroll-reveal">
+                <h3 class="cocktail-name">The Dunwoody Vice</h3>
+                <p class="cocktail-subtitle">A reference to Miami Vice — fruity, sweet, and totally 80s</p>
+                
+                <div class="cocktail-ingredients">
+                    <p><strong>Ingredients:</strong></p>
+                    <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                        <li>Vodka</li>
+                        <li>Peach Schnapps</li>
+                        <li>Cranberry Juice</li>
+                        <li>Orange Juice</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1073,11 +1045,11 @@
 
     <!-- Sponsors Section -->
     <section id="sponsors" class="parallax-section sponsors-section">
-        <div style="width: 100%;">
-            <h2 class="section-title scroll-reveal">🏆 Our Radical Sponsors</h2>
+        <div class="main-content">
+            <h2 class="section-title scroll-reveal">Our Radical Sponsors</h2>
             
             <div class="sponsor-tier scroll-reveal">
-                <p class="tier-title">⭐ Presenting Sponsors ⭐</p>
+                <p class="tier-title">Presenting Sponsors</p>
                 <div class="sponsor-logos">
                     <a href="https://www.regencycenters.com/" target="_blank" class="sponsor-logo">
                         <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/sponsor_0_NMdbr6hqyn.jpg" alt="Regency Centers">
@@ -1089,7 +1061,7 @@
             </div>
             
             <div class="sponsor-tier scroll-reveal">
-                <p class="tier-title">🎨 Art Experience Sponsor</p>
+                <p class="tier-title">Art Experience Sponsor</p>
                 <div class="sponsor-logos">
                     <a href="https://www.jwbrealty.com/" target="_blank" class="sponsor-logo">
                         <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/sponsor_9_t3OulPFbBN.png" alt="JWB Realty Services">
@@ -1098,7 +1070,7 @@
             </div>
             
             <div class="sponsor-tier scroll-reveal">
-                <p class="tier-title">🎭 Art Patrons</p>
+                <p class="tier-title">Art Patrons</p>
                 <div class="sponsor-logos">
                     <a href="https://interlokit.com/" target="_blank" class="sponsor-logo">
                         <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/sponsor_V1Z9m0z8gV.jpg" alt="Interlokit">
@@ -1125,8 +1097,8 @@
 
     <!-- Hosts Section -->
     <section class="parallax-section hosts-section">
-        <div style="width: 100%;">
-            <h2 class="section-title scroll-reveal">💜 Our Amazing 2026 Hosts</h2>
+        <div class="main-content">
+            <h2 class="section-title scroll-reveal">Our Amazing 2026 Hosts</h2>
             
             <div class="hosts-list scroll-reveal">
                 Anonymous Supporter • Jan & Olen Akers • Dawn Brost • Leslie & Frank Cannon • Laura Cooper • James (Jim) & Corrine Cramer • Marie Crean • Steve & Jane Dolinger • Su & Richard Ellis • Fran & Jim Fuchs • Paul & Julie Hagedorn • Carlton Hardee • Susan & Richard Jakubecy • Terry & Alan Kemp • Kay Loerch • Amy & Dan McMorrow • Fran & Mary Millar • Irv & Libba Morris • Jill Morrisey • Joyce Neimann • Rob & Nancy Ortner • Cindy & Tom Pietkiewicz • Beth & Bob Saxe • Christine Self • Tracy Simmons • Leslie & Mike Sivewright • Camille & Mike Toppo • Pat Troxel • Kathy Walton • Pam Wetzel
@@ -1134,31 +1106,31 @@
             
             <div style="margin-top: 3rem;" class="scroll-reveal">
                 <a href="https://wedoauctions.com/app/public/bidapp/spruillarts/tickets/Artistic_Affair?p=sponsor" class="cta-button" target="_blank">
-                    <i class="fas fa-heart"></i> Become a Host
+                    Become a Host
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Donate Section -->
-    <section class="parallax-section" style="background: linear-gradient(180deg, #1a0033 0%, #0a0a1a 100%); padding: 6rem 2rem;">
-        <div style="text-align: center;">
-            <h2 class="section-title scroll-reveal">🎁 Donate to the Silent Auction</h2>
+    <section class="parallax-section" style="background: linear-gradient(180deg, #1a0033 0%, #0a0a1a 100%);">
+        <div class="main-content" style="text-align: center;">
+            <h2 class="section-title scroll-reveal">Donate to the Silent Auction</h2>
             
-            <div class="content-box scroll-reveal" style="max-width: 700px;">
+            <div class="content-box scroll-reveal">
                 <p>
                     Are you a business or artist looking to support the arts? Donate artwork, gift cards, or other goods to our Artistic Affair silent auction!
                 </p>
                 <p>
                     Contact Spruill's Community Programs and Events Coordinator:<br>
                     <a href="mailto:bthomas@spruillarts.org" style="color: var(--neon-cyan);">
-                        <i class="fas fa-envelope"></i> bthomas@spruillarts.org
+                        bthomas@spruillarts.org
                     </a>
                 </p>
                 
                 <div style="margin-top: 2rem;">
                     <a href="https://wedoauctions.com/app/public/bidapp/spruillarts/donate" class="cta-button secondary" target="_blank">
-                        <i class="fas fa-gift"></i> Donate Item
+                        Donate Item
                     </a>
                 </div>
             </div>
@@ -1168,7 +1140,7 @@
     <!-- Footer -->
     <footer>
         <a href="https://www.spruillarts.org/" target="_blank" class="footer-logo-link">
-            <img src="https://www.spruillarts.org/wp-content/uploads/2025/03/Spruill_SCA.png" alt="Spruill Center for the Arts" class="footer-spruill-logo">
+            <img src="images/spruill1980slogo.png" alt="Spruill Artistic Affair 1980s" class="footer-spruill-logo">
         </a>
         
         <div class="footer-logo">Artistic Affair 2026</div>
@@ -1188,14 +1160,43 @@
             <p style="margin-top: 1rem;">
                 Questions? <a href="mailto:bthomas@spruillarts.org">Contact Barb Thomas</a>
             </p>
-            <p style="margin-top: 2rem; color: #444;">
-                Made with ❤️ and totally tubular vibes
-            </p>
         </div>
     </footer>
 
-    <!-- Scroll Reveal Script -->
+    <!-- Parallax & Scroll Scripts -->
     <script>
+        // Store initial positions for parallax elements
+        const parallaxElements = document.querySelectorAll('[data-speed]');
+        const initialPositions = new Map();
+        
+        parallaxElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            initialPositions.set(el, {
+                top: parseFloat(el.style.top) || parseFloat(getComputedStyle(el).top) || 0
+            });
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            
+            parallaxElements.forEach(el => {
+                const speed = parseFloat(el.dataset.speed);
+                const initial = initialPositions.get(el);
+                const yPos = scrolled * speed;
+                
+                // Apply parallax transform
+                const currentTransform = getComputedStyle(el).transform;
+                const rotation = el.classList.contains('cassette-tape') 
+                    ? el.className.match(/cassette-(\d)/) 
+                        ? ['rotate(-15deg)', 'rotate(20deg)', 'rotate(8deg)', 'rotate(-25deg)'][parseInt(el.className.match(/cassette-(\d)/)[1]) - 1]
+                        : ''
+                    : '';
+                
+                el.style.transform = `translateY(${yPos}px) ${rotation}`;
+            });
+        });
+
         // Scroll reveal animation
         const observerOptions = {
             threshold: 0.1,
@@ -1212,17 +1213,6 @@
 
         document.querySelectorAll('.scroll-reveal').forEach(el => {
             observer.observe(el);
-        });
-
-        // Parallax effect on scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            
-            // Move floating elements
-            document.querySelectorAll('.floating-element').forEach((el, i) => {
-                const speed = 0.1 + (i * 0.05);
-                el.style.transform = `translateY(${scrolled * speed}px)`;
-            });
         });
 
         // Smooth scroll for nav links
