@@ -109,7 +109,6 @@
             height: 225px;
             left: -50px;
             top: 15%;
-            transform: rotate(-8deg);
         }
 
         .photo-left-2 {
@@ -117,7 +116,6 @@
             height: 330px;
             left: 10px;
             top: 45%;
-            transform: rotate(5deg);
             border-color: var(--neon-cyan);
             box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
         }
@@ -127,7 +125,6 @@
             height: 240px;
             left: -60px;
             top: 75%;
-            transform: rotate(-12deg);
             border-color: var(--neon-yellow);
             box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
         }
@@ -138,7 +135,6 @@
             height: 360px;
             right: -40px;
             top: 10%;
-            transform: rotate(10deg);
             border-color: var(--neon-purple);
             box-shadow: 0 0 30px rgba(153, 51, 255, 0.5);
         }
@@ -148,7 +144,6 @@
             height: 240px;
             right: 20px;
             top: 40%;
-            transform: rotate(-6deg);
         }
 
         .photo-right-3 {
@@ -156,7 +151,6 @@
             height: 300px;
             right: -45px;
             top: 68%;
-            transform: rotate(8deg);
             border-color: var(--neon-orange);
             box-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
         }
@@ -177,28 +171,24 @@
         .cassette-1 {
             left: 3%;
             top: 25%;
-            transform: rotate(-15deg) scale(1.2);
             filter: hue-rotate(0deg) saturate(1.3);
         }
 
         .cassette-2 {
             right: 5%;
             top: 55%;
-            transform: rotate(20deg) scale(1);
             filter: hue-rotate(180deg) saturate(1.5) brightness(1.1);
         }
 
         .cassette-3 {
             left: 1%;
             top: 60%;
-            transform: rotate(8deg) scale(0.9);
             filter: hue-rotate(90deg) saturate(1.4);
         }
 
         .cassette-4 {
             right: 3%;
             top: 20%;
-            transform: rotate(-25deg) scale(1.1);
             filter: hue-rotate(270deg) saturate(1.2) brightness(1.2);
         }
 
@@ -218,28 +208,24 @@
         .vcr-1 {
             left: 2%;
             top: 38%;
-            transform: rotate(12deg);
             filter: hue-rotate(0deg) saturate(1.2);
         }
 
         .vcr-2 {
             right: 4%;
             top: 32%;
-            transform: rotate(-18deg);
             filter: hue-rotate(45deg) saturate(1.3) brightness(1.1);
         }
 
         .vcr-3 {
             left: 4%;
             top: 82%;
-            transform: rotate(-8deg);
             filter: hue-rotate(200deg) saturate(1.4);
         }
 
         .vcr-4 {
             right: 2%;
             top: 78%;
-            transform: rotate(15deg);
             filter: hue-rotate(320deg) saturate(1.2) brightness(1.15);
         }
 
@@ -854,52 +840,52 @@
     <!-- Parallax Floating Elements Container -->
     <div class="parallax-container">
         <!-- Cassette Tapes -->
-        <div class="cassette-tape cassette-1" data-speed="0.15">
+        <div class="cassette-tape cassette-1" data-speed="0.15" data-rotate="-15" data-scale="1.2">
             <img src="images/casette.png" alt="Cassette Tape">
         </div>
-        <div class="cassette-tape cassette-2" data-speed="0.25">
+        <div class="cassette-tape cassette-2" data-speed="0.25" data-rotate="20" data-scale="1">
             <img src="images/casette.png" alt="Cassette Tape">
         </div>
-        <div class="cassette-tape cassette-3" data-speed="0.1">
+        <div class="cassette-tape cassette-3" data-speed="0.1" data-rotate="8" data-scale="0.9">
             <img src="images/casette.png" alt="Cassette Tape">
         </div>
-        <div class="cassette-tape cassette-4" data-speed="0.2">
+        <div class="cassette-tape cassette-4" data-speed="0.2" data-rotate="-25" data-scale="1.1">
             <img src="images/casette.png" alt="Cassette Tape">
         </div>
 
         <!-- VCR Tapes -->
-        <div class="vcr-tape vcr-1" data-speed="0.13">
+        <div class="vcr-tape vcr-1" data-speed="0.13" data-rotate="12">
             <img src="images/vcrtape2.png" alt="VCR Tape">
         </div>
-        <div class="vcr-tape vcr-2" data-speed="0.18">
+        <div class="vcr-tape vcr-2" data-speed="0.18" data-rotate="-18">
             <img src="images/vcrtape2.png" alt="VCR Tape">
         </div>
-        <div class="vcr-tape vcr-3" data-speed="0.08">
+        <div class="vcr-tape vcr-3" data-speed="0.08" data-rotate="-8">
             <img src="images/vcrtape2.png" alt="VCR Tape">
         </div>
-        <div class="vcr-tape vcr-4" data-speed="0.23">
+        <div class="vcr-tape vcr-4" data-speed="0.23" data-rotate="15">
             <img src="images/vcrtape2.png" alt="VCR Tape">
         </div>
 
         <!-- Left Side Photos -->
-        <div class="parallax-photo photo-left-1" data-speed="0.08">
+        <div class="parallax-photo photo-left-1" data-speed="0.08" data-rotate="-8">
             <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_6HkPEitsJr.jpg" alt="Event Photo">
         </div>
-        <div class="parallax-photo photo-left-2" data-speed="0.12">
+        <div class="parallax-photo photo-left-2" data-speed="0.12" data-rotate="5">
             <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_D8dfIFUGND.jpg" alt="Event Photo">
         </div>
-        <div class="parallax-photo photo-left-3" data-speed="0.18">
+        <div class="parallax-photo photo-left-3" data-speed="0.18" data-rotate="-12">
             <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_HWqWeOHAim.jpg" alt="Event Photo">
         </div>
 
         <!-- Right Side Photos -->
-        <div class="parallax-photo photo-right-1" data-speed="0.1">
+        <div class="parallax-photo photo-right-1" data-speed="0.1" data-rotate="10">
             <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_GTq7hdIl4e.jpg" alt="Event Photo">
         </div>
-        <div class="parallax-photo photo-right-2" data-speed="0.15">
+        <div class="parallax-photo photo-right-2" data-speed="0.15" data-rotate="-6">
             <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_KD1XsQIpVx.jpg" alt="Event Photo">
         </div>
-        <div class="parallax-photo photo-right-3" data-speed="0.22">
+        <div class="parallax-photo photo-right-3" data-speed="0.22" data-rotate="8">
             <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_NnvtuipPwA.jpg" alt="Event Photo">
         </div>
     </div>
@@ -1220,37 +1206,27 @@
 
     <!-- Parallax & Scroll Scripts -->
     <script>
-        // Store initial positions for parallax elements
         const parallaxElements = document.querySelectorAll('[data-speed]');
-        const initialPositions = new Map();
-        
-        parallaxElements.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            initialPositions.set(el, {
-                top: parseFloat(el.style.top) || parseFloat(getComputedStyle(el).top) || 0
-            });
-        });
 
-        // Parallax effect on scroll
-        window.addEventListener('scroll', () => {
+        function updateParallax() {
             const scrolled = window.pageYOffset;
             
             parallaxElements.forEach(el => {
                 const speed = parseFloat(el.dataset.speed);
-                const initial = initialPositions.get(el);
+                const rotate = el.dataset.rotate || 0;
+                const scale = el.dataset.scale || 1;
                 const yPos = scrolled * speed;
                 
-                // Apply parallax transform
-                const currentTransform = getComputedStyle(el).transform;
-                const rotation = el.classList.contains('cassette-tape') 
-                    ? el.className.match(/cassette-(\d)/) 
-                        ? ['rotate(-15deg)', 'rotate(20deg)', 'rotate(8deg)', 'rotate(-25deg)'][parseInt(el.className.match(/cassette-(\d)/)[1]) - 1]
-                        : ''
-                    : '';
-                
-                el.style.transform = `translateY(${yPos}px) ${rotation}`;
+                // Combine translateY with rotation and scale
+                el.style.transform = `translateY(${yPos}px) rotate(${rotate}deg) scale(${scale})`;
             });
-        });
+        }
+
+        // Apply on scroll
+        window.addEventListener('scroll', updateParallax);
+        
+        // Apply immediately on load
+        updateParallax();
 
         // Scroll reveal animation
         const observerOptions = {
