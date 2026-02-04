@@ -107,50 +107,29 @@
             border: none;
         }
 
-        /* RIGHT SIDE: Photos in polaroid frames */
+        /* RIGHT SIDE: Photos in polaroid frames - spread out */
         .photo-right-1 {
             width: 280px;
             height: 210px;
-            right: -40px;
-            top: 8%;
+            right: -30px;
+            top: 5%;
         }
 
         .photo-right-2 {
-            width: 250px;
-            height: 310px;
-            right: 30px;
-            top: 22%;
-        }
-
-        .photo-right-3 {
-            width: 300px;
-            height: 225px;
-            right: -50px;
+            width: 260px;
+            height: 320px;
+            right: 50px;
             top: 38%;
         }
 
-        .photo-right-4 {
-            width: 260px;
-            height: 325px;
-            right: 20px;
-            top: 52%;
-        }
-
-        .photo-right-5 {
+        .photo-right-3 {
             width: 290px;
             height: 218px;
-            right: -30px;
-            top: 68%;
+            right: -20px;
+            top: 72%;
         }
 
-        .photo-right-6 {
-            width: 240px;
-            height: 300px;
-            right: 40px;
-            top: 82%;
-        }
-
-        /* LEFT SIDE: Cassette tapes */
+        /* LEFT SIDE: Cassette tapes - spread out */
         .cassette-tape {
             position: absolute;
             width: 270px;
@@ -165,29 +144,17 @@
 
         .cassette-1 {
             left: -20px;
-            top: 12%;
+            top: 15%;
             filter: hue-rotate(0deg) saturate(1.3);
         }
 
         .cassette-2 {
-            left: 40px;
-            top: 35%;
+            left: 50px;
+            top: 60%;
             filter: hue-rotate(180deg) saturate(1.5) brightness(1.1);
         }
 
-        .cassette-3 {
-            left: -30px;
-            top: 58%;
-            filter: hue-rotate(90deg) saturate(1.4);
-        }
-
-        .cassette-4 {
-            left: 20px;
-            top: 80%;
-            filter: hue-rotate(270deg) saturate(1.2) brightness(1.2);
-        }
-
-        /* LEFT SIDE: VCR Tapes */
+        /* LEFT SIDE: VCR Tapes - spread out */
         .vcr-tape {
             position: absolute;
             width: 280px;
@@ -201,27 +168,15 @@
         }
 
         .vcr-1 {
-            left: 50px;
-            top: 5%;
+            left: 40px;
+            top: 35%;
             filter: hue-rotate(0deg) saturate(1.2);
         }
 
         .vcr-2 {
-            left: -40px;
-            top: 25%;
-            filter: hue-rotate(45deg) saturate(1.3) brightness(1.1);
-        }
-
-        .vcr-3 {
-            left: 30px;
-            top: 48%;
-            filter: hue-rotate(200deg) saturate(1.4);
-        }
-
-        .vcr-4 {
-            left: -20px;
-            top: 70%;
-            filter: hue-rotate(320deg) saturate(1.2) brightness(1.15);
+            left: -30px;
+            top: 80%;
+            filter: hue-rotate(90deg) saturate(1.3) brightness(1.1);
         }
 
         /* Hide parallax elements on mobile */
@@ -834,51 +789,30 @@
 
     <!-- Parallax Floating Elements Container -->
     <div class="parallax-container">
-        <!-- LEFT SIDE: Cassette Tapes & VCR Tapes -->
-        <div class="cassette-tape cassette-1" data-speed="0.15" data-rotate="-15" data-scale="1.2">
+        <!-- LEFT SIDE: Cassette Tapes & VCR Tapes (fewer, spread out) -->
+        <div class="cassette-tape cassette-1" data-speed="0.06" data-rotate="-12" data-scale="1.1">
             <img src="images/casette.png" alt="Cassette Tape">
         </div>
-        <div class="cassette-tape cassette-2" data-speed="0.22" data-rotate="18" data-scale="1">
-            <img src="images/casette.png" alt="Cassette Tape">
-        </div>
-        <div class="cassette-tape cassette-3" data-speed="0.1" data-rotate="-8" data-scale="0.95">
-            <img src="images/casette.png" alt="Cassette Tape">
-        </div>
-        <div class="cassette-tape cassette-4" data-speed="0.18" data-rotate="12" data-scale="1.1">
+        <div class="cassette-tape cassette-2" data-speed="0.04" data-rotate="15" data-scale="1">
             <img src="images/casette.png" alt="Cassette Tape">
         </div>
 
-        <div class="vcr-tape vcr-1" data-speed="0.12" data-rotate="10">
+        <div class="vcr-tape vcr-1" data-speed="0.05" data-rotate="8">
             <img src="images/vcrtape2.png" alt="VCR Tape">
         </div>
-        <div class="vcr-tape vcr-2" data-speed="0.2" data-rotate="-14">
-            <img src="images/vcrtape2.png" alt="VCR Tape">
-        </div>
-        <div class="vcr-tape vcr-3" data-speed="0.08" data-rotate="6">
-            <img src="images/vcrtape2.png" alt="VCR Tape">
-        </div>
-        <div class="vcr-tape vcr-4" data-speed="0.16" data-rotate="-20">
+        <div class="vcr-tape vcr-2" data-speed="0.03" data-rotate="-10">
             <img src="images/vcrtape2.png" alt="VCR Tape">
         </div>
 
-        <!-- RIGHT SIDE: Photos Only -->
-        <div class="parallax-photo photo-right-1" data-speed="0.1" data-rotate="8">
+        <!-- RIGHT SIDE: Photos Only (fewer, spread out) -->
+        <div class="parallax-photo photo-right-1" data-speed="0.05" data-rotate="7">
             <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_6HkPEitsJr.jpg" alt="Event Photo">
         </div>
-        <div class="parallax-photo photo-right-2" data-speed="0.16" data-rotate="-6">
+        <div class="parallax-photo photo-right-2" data-speed="0.04" data-rotate="-5">
             <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_D8dfIFUGND.jpg" alt="Event Photo">
         </div>
-        <div class="parallax-photo photo-right-3" data-speed="0.22" data-rotate="12">
+        <div class="parallax-photo photo-right-3" data-speed="0.06" data-rotate="10">
             <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_HWqWeOHAim.jpg" alt="Event Photo">
-        </div>
-        <div class="parallax-photo photo-right-4" data-speed="0.08" data-rotate="-10">
-            <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_GTq7hdIl4e.jpg" alt="Event Photo">
-        </div>
-        <div class="parallax-photo photo-right-5" data-speed="0.14" data-rotate="5">
-            <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_KD1XsQIpVx.jpg" alt="Event Photo">
-        </div>
-        <div class="parallax-photo photo-right-6" data-speed="0.19" data-rotate="-8">
-            <img src="https://d2y9d0ry7vx6k5.cloudfront.net/events/22165/images/lpi_NnvtuipPwA.jpg" alt="Event Photo">
         </div>
     </div>
 
